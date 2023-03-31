@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import NavBar from './components/NavBar';
 import News from './components/News';
 import {  BrowserRouter as Router, Routes, Route} from "react-router-dom";
@@ -9,7 +9,26 @@ import LoadingBar from 'react-top-loading-bar'
 const App = () => { 
   const pageSize = 15; const country = 'in'; const apiKey= process.env.REACT_APP_NEWS_API
 
-  const [progress, setProgress] = useState(0)
+  const [progress, setProgress] = useState(0);
+  const [showButton, setShowButton] = useState(false);
+
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 100) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
+
+   const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // for smoothly scrolling
+    });
+  };
   
     return (
       <>
@@ -33,6 +52,12 @@ const App = () => {
               <Route exact path="/technology" element={<News setProgress={setProgress} apiKey={apiKey}key="technology" pageSize={pageSize} country={country} category="technology" />}> </Route>
             </Routes>
           </Router>
+
+          {showButton && (
+        <button onClick={scrollToTop} className="back-to-top">
+          &#8679;
+        </button>
+      )}
         </div>
 
       </>
