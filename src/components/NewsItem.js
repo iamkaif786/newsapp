@@ -11,7 +11,7 @@ const NewsItem = (props)=> {
                         </span>
                     </div>
 
-                    <img src={!imageUrl ? "https://c.ndtvimg.com/2023-03/fv107ho_arvind-kejriwal-pti_625x300_07_March_23.jpg" : imageUrl} className="card-img-top" alt="..." />
+                    <img src={!imageUrl ? "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.toptal.com%2Fmachine-learning%2Fgenerative-adversarial-networks&psig=AOvVaw1qtozV0ffcekQ-Tb53eMBo&ust=1680325686999000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNC375Czhf4CFQAAAAAdAAAAABAE" : imageUrl} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{title}</h5>
                         <p className="card-text">{description}</p>
